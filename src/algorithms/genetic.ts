@@ -13,7 +13,7 @@ export function* geneticAlgorithmTSP(cities: City[], populationSize = 80, genera
   });
 
   let bestEverDistance = Infinity;
-  let bestEverPath = [];
+let bestEverPath: number[] = [];
 
   for (let gen = 0; gen < generations; gen++) {
     population = population.map(ind => ({ ...ind, fitness: 1 / calculateTotalDistance(cities, ind.path) }));
