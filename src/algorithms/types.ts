@@ -1,22 +1,28 @@
-// Represents a city with coordinates
 export interface City {
   id: number;
+  name: string;
   x: number;
   y: number;
-  name: string;
 }
 
-export interface TSPStep {
-  type: 'VISIT' | 'CONSIDER' | 'COMPLETE';
-  currentCity: number;
-  nextCity?: number;
-  path: number[];
-  distance: number;
-}
-
-export interface AlgorithmStats {
-  name: string;
-  totalDistance: number;
-  executionTime: number;
-  iterations: number;
-}
+export type TSPStep =
+  | {
+      type: "CONSIDER";
+      currentCity: number;
+      nextCity: number;
+      path: number[];
+      distance: number;
+    }
+  | {
+      type: "VISIT";
+      currentCity: number;
+      nextCity?: number;
+      path: number[];
+      distance: number;
+    }
+  | {
+      type: "COMPLETE";
+      currentCity: number;
+      path: number[];
+      distance: number;
+    };
