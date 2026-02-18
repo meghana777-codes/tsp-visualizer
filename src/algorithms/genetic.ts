@@ -31,11 +31,15 @@ export function* geneticAlgorithmTSP(
 
     population.sort((a, b) => b.fitness - a.fitness);
 
-    const currentBest = 1 / population[0].fitness;
+    const bestIndividual = population[0];
+    if (!bestIndividual) continue;
+
+    const currentBest = 1 / bestIndividual.fitness;
+
 
     if (currentBest < bestEverDistance) {
       bestEverDistance = currentBest;
-      bestEverPath = [...population[0].path];
+      bestEverPath = [...bestIndividual.path];
     }
 
     yield {
