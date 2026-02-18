@@ -21,7 +21,7 @@ export function* geneticAlgorithmTSP(
   });
 
   let bestEverDistance = Infinity;
-  let bestEverPath: number[] = [];
+  let bestEverPath: number[]=[];
 
   for (let gen = 0; gen < generations; gen++) {
     population = population.map((ind) => ({
