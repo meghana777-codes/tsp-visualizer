@@ -148,7 +148,12 @@ function App() {
               cities={cities}
               path={currentStep?.path ?? []}
               currentCity={currentStep?.currentCity}
-              consideringCity={currentStep?.nextCity}
+              consideringCity={
+              currentStep?.type === "CONSIDER"
+              ?currentStep.nextCity
+              : undefined
+              }
+
             />
 
             <AnimationControls
